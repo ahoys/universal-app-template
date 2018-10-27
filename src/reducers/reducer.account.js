@@ -19,7 +19,7 @@ const types = {
   'REMOVE_ACCOUNT': removeAccount,
 };
 
-const accountReducer = (state = initialState, action) => {
+const account = (state = initialState, action) => {
   if (types[action.type]) {
     return types[action.type](action);
   } else {
@@ -27,4 +27,4 @@ const accountReducer = (state = initialState, action) => {
   }
 }
 
-export default accountReducer;
+export default account;
