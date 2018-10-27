@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom';
 export default class App extends React.Component {
   render() {
     return (
-      <div onClick={() => { console.log('hah') }}>
+      <div>
         <Header />
         <Route exact path="/" component={Dashboard} />
       </div>
