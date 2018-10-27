@@ -6,7 +6,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress",
     "client": "webpack --watch --progress",
-    "server": "cross-env NODE_ENV=production webpack && node dist/server.bundle.js"
+    "server": "cross-env node dist/server.bundle.js"
   },
   "author": "Ari Höysniemi",
   "dependencies": {
