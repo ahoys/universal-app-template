@@ -1,8 +1,10 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-module.exports = {
-  mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
+// Production config (default).
+// This will be automatically enabled. You can override settings in the dev-config below.
+const config = {
+  mode: 'production',
   target: 'node',
   entry: {
     client: './src/client.js',
@@ -25,14 +27,24 @@ module.exports = {
       components: path.resolve(__dirname, 'src/components/'),
       reducers: path.resolve(__dirname, 'src/reducers/'),
       actions: path.resolve(__dirname, 'src/actions/'),
-      containers: path.resolve(__dirname, 'src/containers/'),
     },
     extensions: ['.js'],
     modules: ['node_modules'],
     plugins: [
-      // Cleans dist before building new.
       new CleanWebpackPlugin(['dist']),
     ],
   },
-  devtool: 'inline-source-map',
 };
+
+// Development overrides.
+// Use cross-env NODE_ENV = development to initialize.
+if (process.env.NODE_ENV === 'development') {
+  config.mode = 'development';
+  config.output.path = path.resolve(__dirname, 'dist/dev');
+  config.devtool = 'inline-source-map';
+  config.resolve.plugins = [
+    new CleanWebpackPlugin(['dist/dev']),
+  ];
+}
+
+module.exports = config;

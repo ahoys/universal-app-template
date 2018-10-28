@@ -4,9 +4,9 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --progress",
-    "client": "webpack --watch --progress",
-    "server": "cross-env node dist/server.bundle.js"
+    "build": "webpack --progress",
+    "dev": "cross-env NODE_ENV=development webpack --progress && node dist/dev/server.bundle.js",
+    "start": "node dist/server.bundle.js"
   },
   "author": "Ari Höysniemi",
   "dependencies": {
