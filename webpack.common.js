@@ -12,6 +12,7 @@ const path = require('path');
 
 module.exports = {
   server: {
+    name: 'server',
     target: 'node',
     entry: './src/server.js',
     module: {
@@ -31,6 +32,7 @@ module.exports = {
     },
   },
   client: {
+    name: 'client',
     target: 'web',
     entry: './src/client.js',
     module: {
