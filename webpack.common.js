@@ -43,6 +43,7 @@ module.exports = {
     },
     resolve: {
       alias: {
+        dist: path.resolve(__dirname, 'dist/'),
         actions: path.resolve(__dirname, 'src/actions/'),
         components: path.resolve(__dirname, 'src/components/'),
         reducers: path.resolve(__dirname, 'src/reducers/'),

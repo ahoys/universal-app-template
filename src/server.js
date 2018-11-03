@@ -1,27 +1,35 @@
+import express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import express from 'express';
 import path from 'path';
 import fs from 'fs';
 import serialize from 'serialize-javascript';
-import routes from './routes';
 import App from 'components/App';
 import createStore from 'reducers';
 import { initializeSession } from 'actions/actions.session'
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router';
-import { matchPath } from 'react-router-dom';
-import './index.html';
 
-const server = express();
+const app = express();
 
-server.use(express.static('dist'));
+if (process.env.NODE_ENV === 'development') {
+  const webpack = require('webpack');
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+  const webpackHotServerMiddleware = require('webpack-hot-server-middleware');
+  const compiler = webpack(require('../webpack.development.js'));
+  app.use(webpackDevMiddleware(compiler, {
+    serverSideRender: true,
+  }));
+  app.use(webpackHotServerMiddleware(compiler));
+} else {
+  app.use(express.static('dist'));
+}
 
-server.get('/*', (req, res) => {
+app.get('/*', (req, res) => {
   const context = {};
   const store = createStore();
   store.dispatch(initializeSession(true));
-  const app = ReactDOMServer.renderToString(
+  const client = ReactDOMServer.renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={context}>
         <App />
@@ -42,13 +50,13 @@ server.get('/*', (req, res) => {
     }
     return res.end(
       indexData
-        .replace('<div id="root"></div>', `<div id="root">${app}</div>`)
+        .replace('<div id="root"></div>', `<div id="root">${client}</div>`)
         .replace('</body>', `<script>window.REDUX_DATA = ${serialize(store.getState())}</script></body>`)
-        .replace('</body>', '<script src="./client.bundle.js"></script>')
+        .replace('</body>', '<script src="./client.js"></script>')
       );
   })
 });
 
-server.listen(3000, () => {
+app.listen(3000, () => {
   console.log('Server on 3000.');
 });

@@ -2,10 +2,10 @@
   "name": "universal-app-template",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
+  "main": "webpack.production.js",
   "scripts": {
-    "build": "webpack --config webpack.production.js",
-    "start": "node src/index.js"
+    "build": "webpack --progress --config webpack.production.js",
+    "start": "cross-env NODE_ENV=development node dev.server.js"
   },
   "author": "Ari Höysniemi",
   "dependencies": {
@@ -24,7 +24,10 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "app-module-path": "^2.2.0",
     "babel-loader": "^8.0.4",
+    "babel-polyfill": "^6.26.0",
     "clean-webpack-plugin": "^0.1.19",
     "cross-env": "^5.2.0",
     "file-loader": "^2.0.0",
