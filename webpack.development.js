@@ -21,6 +21,7 @@ module.exports = merge.multiple(common, {
     output: {
       path: destination,
       filename: 'dev.server.js',
+      publicPath: '/',
     },
     devtool: 'eval-source-map',
   },
