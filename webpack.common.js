@@ -17,7 +17,7 @@ module.exports = {
     module: {
       rules: [
         { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
-        { test: /\.html$/, use: 'file-loader', exclude: /node_modules/ }
+        { test: /\.html$/, use: 'file-loader', exclude: /node_modules/ },
       ],
     },
     resolve: {
@@ -36,7 +36,7 @@ module.exports = {
     module: {
       rules: [
         { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
-        { test: /\.html$/, use: 'file-loader', exclude: /node_modules/ }
+        { test: /\.html$/, use: 'file-loader', exclude: /node_modules/ },
       ],
     },
     resolve: {
@@ -49,4 +49,4 @@ module.exports = {
       modules: ['node_modules'],
     },
   },
-}
+};
