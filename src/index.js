@@ -1,5 +1,5 @@
 /**
- * dev.server.js
+ * index.js
  * 
  * Development server starts from here.
  * This is a wrapper file for the actual server file.
@@ -10,6 +10,6 @@
  * Production build will skip this file.
  */
 require('@babel/register');
-require('babel-polyfill');
-require('app-module-path').addPath('./src');
-require('./src/server');
+require('@babel/polyfill');
+require('app-module-path/register');
+require('./server.js')(true);

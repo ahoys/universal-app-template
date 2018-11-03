@@ -21,6 +21,7 @@ if (process.env.NODE_ENV === 'development') {
     serverSideRender: true,
   }));
   app.use(webpackHotServerMiddleware(compiler));
+  app.use(express.static('./build'));
 } else {
   app.use(express.static('dist'));
 }
