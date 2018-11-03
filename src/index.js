@@ -12,4 +12,4 @@
 require('@babel/register');
 require('@babel/polyfill');
 require('app-module-path/register');
-require('./server.js')(true);
+require('./server.js');
