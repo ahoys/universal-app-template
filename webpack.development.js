@@ -20,8 +20,6 @@ module.exports = merge.multiple(common, {
     mode: 'development',
     devtool: 'eval-source-map',
     output: {
-      path: path.resolve(__dirname, 'dist/'),
-      filename: 'server.js',
       publicPath: '/',
       libraryTarget: 'commonjs2',
     },

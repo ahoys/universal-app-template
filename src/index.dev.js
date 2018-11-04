@@ -22,8 +22,6 @@ app.use(webpackDevMiddleware(compiler, {
 
 app.use(webpackHotServerMiddleware(compiler));
 
-app.use(express.static('./build'));
-
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
