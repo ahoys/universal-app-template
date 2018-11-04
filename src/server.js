@@ -1,3 +1,14 @@
+/**
+ * server.js
+ * 
+ * Here we clue things together.
+ * Client (including the React app) is embedded into
+ * a basic html frame (index.html) and served to
+ * the clients.
+ * 
+ * Both development and production environments
+ * utilize this file.
+ */
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import path from 'path';
@@ -9,10 +20,15 @@ import { initializeSession } from 'actions/actions.session';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router';
 
+// Create initial context
+// and initialize stores.
+const context = {};
+const store = createStore();
+store.dispatch(initializeSession(true));
+const indexFile = path.resolve('src/index.html');
+
+// Handle rendered pages to clients.
 export default () => (req, res, next) => {
-  const context = {};
-  const store = createStore();
-  store.dispatch(initializeSession(true));
   const client = ReactDOMServer.renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={context}>
@@ -20,18 +36,21 @@ export default () => (req, res, next) => {
       </StaticRouter>
     </Provider>
   );
-  const indexFile = path.resolve('src/index.html');
   fs.readFile(indexFile, 'utf8', (err, indexData) => {
+    // 500: Error.
     if (err) {
-      console.error('Error on reading indexFile:', err);
-      return res.status(500).end(`Try again later.`);
+      console.error('Could not read the index file:', err);
+      return res.status(500).end('Could not provide the content. Try again later.');
     }
+    // 404: Not found.
     if (context.status === 404) {
-      res.status(404).end('Not found.');
+      res.status(404).end('Site not found.');
     }
+    // 301: Redirect.
     if (context.url) {
       return res.redirect(301, req.url);
     }
+    // 200: Success.
     return res.end(
       indexData
         .replace('<div id="root"></div>', `<div id="root">${client}</div>`)
