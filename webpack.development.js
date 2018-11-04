@@ -18,19 +18,16 @@ const destination = path.resolve(__dirname, 'src/build');
 module.exports = merge.multiple(common, {
   server: {
     mode: 'development',
-    output: {
-      path: destination,
-      filename: 'dev.server.js',
-      publicPath: '/',
-    },
     devtool: 'eval-source-map',
+    output: {
+      path: path.resolve(__dirname, 'dist/'),
+      filename: 'server.js',
+      publicPath: '/',
+      libraryTarget: 'commonjs2',
+    },
   },
   client: {
     mode: 'development',
-    output: {
-      path: destination,
-      filename: 'dev.client.js',
-    },
     devtool: 'eval-source-map',
   },
 });

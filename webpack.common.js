@@ -15,6 +15,10 @@ module.exports = {
     name: 'server',
     target: 'node',
     entry: './src/server.js',
+    output: {
+      path: path.resolve(__dirname, 'dist/'),
+      filename: 'server.js',
+    },
     module: {
       rules: [
         { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
@@ -35,6 +39,10 @@ module.exports = {
     name: 'client',
     target: 'web',
     entry: './src/client.js',
+    output: {
+      path: path.resolve(__dirname, 'dist/'),
+      filename: 'client.js',
+    },
     module: {
       rules: [
         { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },

@@ -19,10 +19,7 @@ const destination = path.resolve(__dirname, 'dist');
 module.exports = merge.multiple(common, {
   server: {
     mode: 'production',
-    output: {
-      path: destination,
-      filename: 'server.js',
-    },
+    entry: './src/index.prod.js',
     devtool: 'nosources-source-map',
     plugins: [
       // Cleans the destination folder before building new.
@@ -31,10 +28,6 @@ module.exports = merge.multiple(common, {
   },
   client: {
     mode: 'production',
-    output: {
-      path: destination,
-      filename: 'client.js',
-    },
     devtool: 'nosources-source-map',
   },
 });
