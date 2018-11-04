@@ -14,7 +14,7 @@ import ReactDOMServer from 'react-dom/server';
 import path from 'path';
 import fs from 'fs';
 import serialize from 'serialize-javascript';
-import App from 'components/App';
+import ContextProvider from 'components/ContextProvider';
 import createStore from 'reducers';
 import { initializeSession } from 'actions/actions.session';
 import { Provider } from 'react-redux';
@@ -22,7 +22,6 @@ import { StaticRouter } from 'react-router';
 
 // Create initial context
 // and initialize stores.
-const context = {};
 const store = createStore();
 store.dispatch(initializeSession(true));
 const indexFile = path.resolve('src/index.html');
@@ -33,6 +32,10 @@ const basename = process.env.BASENAME || '';
 
 // Handle rendered pages to clients.
 export default () => (req, res, next) => {
+  const css = new Set();
+  const context = {
+    insertCss: (...styles) => styles.forEach(style => css.add(style._getCss())),
+  };
   const client = ReactDOMServer.renderToString(
     <Provider store={store}>
       <StaticRouter
@@ -40,7 +43,7 @@ export default () => (req, res, next) => {
         location={req.url}
         context={context}
       >
-        <App />
+        <ContextProvider context={context} />
       </StaticRouter>
     </Provider>
   );
@@ -67,6 +70,10 @@ export default () => (req, res, next) => {
           `<script>window.REDUX_DATA = ${serialize(store.getState())}</script></body>`,
         )
         .replace('</body>', '<script src="./client.js"></script>')
+        .replace(
+          '<style type="text/css"></style>',
+          `<style type="text/css">${[...css].join('')}</style>`
+        ),
       );
   });
 };

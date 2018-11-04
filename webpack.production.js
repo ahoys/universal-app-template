@@ -11,6 +11,7 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const common = require('./webpack.common.js');
 
 // The built files will go here.
@@ -24,6 +25,11 @@ module.exports = merge.multiple(common, {
     plugins: [
       // Cleans the destination folder before building new.
       new CleanWebpackPlugin([destination]),
+      // This plugin extracts CSS into separate files.
+      new MiniCssExtractPlugin({
+        filename: "[name].css",
+        chunkFilename: "[id].css"
+      }),
     ],
   },
   client: {

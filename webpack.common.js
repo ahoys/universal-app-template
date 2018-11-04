@@ -23,6 +23,11 @@ module.exports = {
       rules: [
         { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
         { test: /\.html$/, use: 'file-loader', exclude: /node_modules/ },
+        {
+          test: /\.scss$/,
+          use: ['isomorphic-style-loader', 'css-loader', 'sass-loader'],
+          exclude: /node_modules/,
+        },
       ],
     },
     resolve: {
@@ -47,6 +52,11 @@ module.exports = {
       rules: [
         { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
         { test: /\.html$/, use: 'file-loader', exclude: /node_modules/ },
+        {
+          test: /\.scss$/,
+          use: ['isomorphic-style-loader', 'css-loader', 'sass-loader'],
+          exclude: /node_modules/,
+        },
       ],
     },
     resolve: {
