@@ -3,6 +3,8 @@
 A general usage boilerplate for various (bigger) projects that require
 performance, security and stability.
 
+This is work in progress. Make sure to read that TODO-list.
+
 ## Some goals:
 - As minimum as possible.
 - As peformant as possible.
