@@ -27,11 +27,19 @@ const store = createStore();
 store.dispatch(initializeSession(true));
 const indexFile = path.resolve('src/index.html');
 
+// A properly formatted basename should have a leading slash, but no trailing slash.
+// https://reacttraining.com/react-router/core/api/StaticRouter/basename-string
+const basename = process.env.BASENAME || '';
+
 // Handle rendered pages to clients.
 export default () => (req, res, next) => {
   const client = ReactDOMServer.renderToString(
     <Provider store={store}>
-      <StaticRouter location={req.url} context={context}>
+      <StaticRouter
+        basename={basename}
+        location={req.url}
+        context={context}
+      >
         <App />
       </StaticRouter>
     </Provider>
