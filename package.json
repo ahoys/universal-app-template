@@ -11,6 +11,7 @@
   "author": "Ari Höysniemi",
   "dependencies": {
     "express": "^4.16.4",
+    "immutable": "^4.0.0-rc.12",
     "node-sass": "^4.10.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
