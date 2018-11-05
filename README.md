@@ -28,3 +28,7 @@ This is work in progress. Make sure to read that TODO-list.
 - Testing support.
 - Reactive yet functional app example.
 - Replace redux-thunk.
+- FontAwesome support.
+- Cookie handling.
+- RESTful login example.
+- Custom configs.
