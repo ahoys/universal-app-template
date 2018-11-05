@@ -5,7 +5,8 @@
   "main": "webpack.production.js",
   "scripts": {
     "build": "webpack --progress --config webpack.production.js",
-    "start": "cross-env NODE_ENV=development node src/index.dev.js"
+    "start": "cross-env NODE_ENV=development node src/index.dev.js",
+    "start:dist": "node dist/server.js"
   },
   "author": "Ari Höysniemi",
   "dependencies": {
