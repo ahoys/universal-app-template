@@ -1,25 +1,21 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import style from './Header.scss';
 import { connect } from 'react-redux';
 import { setAccount } from 'actions/actions.account';
 
-const Header = ({ isLoggedIn, isInitialized, handleLogIn }) => {
-  if (isLoggedIn) {
-    return (
-      <div>
-        isLoggedIn!
-      </div>
-    );
-  }
-  return (
-    <div onClick={handleLogIn}>
-      {`Click to log in. IsInitialized: ${isInitialized}`}
-    </div>
-  );
-};
+const Header = ({ isLoggedIn, handleLogIn }) => (
+  <div className="Header">
+    {
+      isLoggedIn
+      ? <div>Logged in!</div>
+      : <div onClick={handleLogIn}>Log in</div>
+    }
+  </div>
+);
 
 const mapStateToProps = (state, props) => ({
   isLoggedIn: state.account.token !== '' && state.account.username !== '',
-  isInitialized: state.session.isInitialized,
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
@@ -34,4 +30,4 @@ const mapDispatchToProps = (dispatch, props) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Header);
+)(withStyles(style)(Header));

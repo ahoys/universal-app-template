@@ -18,7 +18,7 @@ import ContextProvider from 'components/ContextProvider';
 import createStore from 'reducers';
 import { initializeSession } from 'actions/actions.session';
 import { Provider } from 'react-redux';
-import { StaticRouter } from 'react-router';
+import { StaticRouter } from 'react-router-dom';
 
 // Create initial context
 // and initialize stores.
