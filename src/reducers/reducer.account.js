@@ -1,27 +1,21 @@
-const initialState = {
-  token: '',
+import { Map, List, fromJS } from 'immutable';
+
+const getInitialState = () => ({
   username: '',
-};
-
-const setAccount = ({ token, username }) => {
-  return {
-    token,
-    username,
-  }
-}
-
-const removeAccount = () => {
-  return initialState;
-}
+  token: '',
+});
 
 const types = {
-  'SET_ACCOUNT': setAccount,
-  'REMOVE_ACCOUNT': removeAccount,
+  'REQUEST_SIGN_IN': () => getInitialState(),
+  'RECEIVE_SIGN_IN': (state, action) => ({
+    username: action.payload.username,
+    token: action.payload.token,
+  }),
 };
 
-const account = (state = initialState, action) => {
+const account = (state = getInitialState(), action) => {
   if (types[action.type]) {
-    return types[action.type](action);
+    return types[action.type](state, action);
   } else {
     return state;
   }

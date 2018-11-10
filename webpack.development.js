@@ -9,6 +9,7 @@
  * fast build times.
  */
 const path = require('path');
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
@@ -23,6 +24,10 @@ module.exports = merge.multiple(common, {
       publicPath: '/',
       libraryTarget: 'commonjs2',
     },
+    plugins: [
+      // To avoid warnings in builds.
+      new webpack.DefinePlugin({ "global.GENTLY": false }),
+    ],
   },
   client: {
     mode: 'development',

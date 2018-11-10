@@ -9,6 +9,7 @@
  * are nearly trivial.
  */
 const path = require('path');
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -30,6 +31,8 @@ module.exports = merge.multiple(common, {
         filename: "[name].css",
         chunkFilename: "[id].css"
       }),
+      // To avoid warnings in builds.
+      new webpack.DefinePlugin({ "global.GENTLY": false }),
     ],
   },
   client: {

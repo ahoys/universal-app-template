@@ -10,7 +10,12 @@
   },
   "author": "Ari Höysniemi",
   "dependencies": {
+    "@cycle/http": "^15.0.0",
+    "@cycle/run": "^5.1.0",
+    "cors": "^2.8.5",
+    "debug": "^4.1.0",
     "express": "^4.16.4",
+    "http-proxy": "^1.17.0",
     "immutable": "^4.0.0-rc.12",
     "node-sass": "^4.10.0",
     "prop-types": "^15.6.2",
@@ -19,8 +24,9 @@
     "react-redux": "^5.1.0",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0",
-    "serialize-javascript": "^1.5.0"
+    "redux-cycles": "^0.4.1",
+    "serialize-javascript": "^1.5.0",
+    "xstream": "^11.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

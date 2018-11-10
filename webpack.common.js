@@ -34,6 +34,8 @@ module.exports = {
       alias: {
         actions: path.resolve(__dirname, 'src/actions/'),
         components: path.resolve(__dirname, 'src/components/'),
+        configs: path.resolve(__dirname, 'src/configs/'),
+        cycles: path.resolve(__dirname, 'src/cycles/'),
         reducers: path.resolve(__dirname, 'src/reducers/'),
         styles: path.resolve(__dirname, 'src/styles/'),
       },
@@ -65,6 +67,8 @@ module.exports = {
         dist: path.resolve(__dirname, 'dist/'),
         actions: path.resolve(__dirname, 'src/actions/'),
         components: path.resolve(__dirname, 'src/components/'),
+        configs: path.resolve(__dirname, 'src/configs/'),
+        cycles: path.resolve(__dirname, 'src/cycles/'),
         reducers: path.resolve(__dirname, 'src/reducers/'),
         styles: path.resolve(__dirname, 'src/styles/'),
       },

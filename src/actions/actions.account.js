@@ -1,9 +1,19 @@
-export const setAccount = ({ token, username }) => ({
-  type: 'SET_ACCOUNT',
-  token,
-  username,
-});
+export const requestSignIn = ({ username, password }) => {
+  return {
+    type: 'REQUEST_SIGN_IN',
+    payload: {
+      username,
+      password,
+    },
+  };
+};
 
-export const removeAccount = () => ({
-  type: 'REMOVE_ACCOUNT',
-});
+export const receiveSignIn = (username, token) => {
+  return {
+    type: 'RECEIVE_SIGN_IN',
+    payload: {
+      username,
+      token,
+    },
+  };
+};

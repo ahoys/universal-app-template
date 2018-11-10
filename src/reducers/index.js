@@ -1,12 +1,23 @@
 import account from './reducer.account';
-import session from './reducer.session';
-import thunkMiddleware from "redux-thunk";
+import main from 'cycles';
+import { createCycleMiddleware } from 'redux-cycles';
+import { run } from '@cycle/run';
+import { makeHTTPDriver } from '@cycle/http';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
-const reducer = combineReducers({
-  session,
-  account,
-});
+const configureStore = (initialState) => {  
+  const rootReducer = combineReducers({
+    account,
+  });
+  const cycleMiddleware = createCycleMiddleware();
+  const { makeActionDriver, makeStateDriver } = cycleMiddleware;
+  const store = createStore(rootReducer, initialState, applyMiddleware(cycleMiddleware));
+  run(main, {
+    ACTION: makeActionDriver(),
+    STATE: makeStateDriver(),
+    HTTP: makeHTTPDriver(),
+  });
+  return store;
+};
 
-export default (initialState) =>
-  createStore(reducer, initialState, applyMiddleware(thunkMiddleware));
+export default configureStore;

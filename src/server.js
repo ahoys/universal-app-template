@@ -15,15 +15,13 @@ import path from 'path';
 import fs from 'fs';
 import serialize from 'serialize-javascript';
 import ContextProvider from 'components/ContextProvider';
-import createStore from 'reducers';
-import { initializeSession } from 'actions/actions.session';
+import configureStore from 'reducers';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
 
 // Create initial context
 // and initialize stores.
-const store = createStore();
-store.dispatch(initializeSession(true));
+const store = configureStore();
 const indexFile = path.resolve('src/index.html');
 
 // A properly formatted basename should have a leading slash, but no trailing slash.
