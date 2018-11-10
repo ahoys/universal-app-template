@@ -20,6 +20,7 @@ This is work in progress. Make sure to read that TODO-list.
 - SCSS-support
 - SSR
 - CSR
+- Immutable store
 
 ## Big and small TODOs:
 - MiniCssExtractPlugin should separate css.
