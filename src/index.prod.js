@@ -10,6 +10,7 @@
  * 
  * Development environment will skip this file.
  */
+import config from 'configs/app_config.js';
 import debug from 'debug';
 import express from 'express';
 import ServerRenderer from './server';
@@ -25,12 +26,10 @@ const apiProxy = httpProxy.createProxyServer();
 
 // Proxy error handling.
 apiProxy.on('error', (err, req, res) => {
-  console.log('PROXY ERROR');
-  console.log(err);
   res.writeHead(500, {
     'Content-Type': 'text/plain',
   });
-  res.end('Something went wrong');
+  res.end('Something went wrong.');
 });
 
 // Proxy /api/ calls to localhost to avoid
@@ -38,8 +37,8 @@ apiProxy.on('error', (err, req, res) => {
 app.get('/api*', (req, res) => {
   apiProxy.web(req, res, {
     target: {
-      port: 2800,
-      host: 'localhost',
+      port: config.rest.port,
+      host: config.rest.host,
     },
   });
 });
@@ -48,8 +47,6 @@ app.use(express.static('dist'));
 
 app.use(ServerRenderer());
 
-const port = process.env.PORT || 3000;
-
-app.listen(port, () => {
-  console.log(`Production server is listening on port ${port}.`);
+app.listen(config.server.port, () => {
+  console.log(`Production server is listening on port ${config.server.port}.`);
 });

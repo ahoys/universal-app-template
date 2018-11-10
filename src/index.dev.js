@@ -13,7 +13,7 @@ const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotServerMiddleware = require('webpack-hot-server-middleware');
-const httpProxy = require("http-proxy");
+const httpProxy = require('http-proxy');
 const compiler = webpack(require('../webpack.development.js'));
 const cors = require('cors');
 
@@ -42,8 +42,8 @@ apiProxy.on('error', (err, req, res) => {
 app.get('/api*', (req, res) => {
   apiProxy.web(req, res, {
     target: {
-      port: 2800,
-      host: 'localhost',
+      port: config.rest.port,
+      host: config.rest.host,
     },
   });
 });

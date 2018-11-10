@@ -26,10 +26,10 @@ const server = {
 const rest = {
   port: dc && dc.rest && dc.rest.port
     ? dc.rest.port
-    : process.env.REST_PORT || 3000,
+    : process.env.REST_PORT || 2800,
   host: dc && dc.rest && dc.rest.host
     ? dc.rest.host
-    : process.env.REST_HOST || 'http://localhost/',
+    : process.env.REST_HOST || 'localhost',
 }
 
 module.exports = {
