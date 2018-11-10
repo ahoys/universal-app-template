@@ -21,15 +21,14 @@ This is work in progress. Make sure to read that TODO-list.
 - SSR
 - CSR
 - Immutable store
+- Reactive yet functional app example.
+- RESTful login example.
+- Custom configs.
 
 ## Big and small TODOs:
 - MiniCssExtractPlugin should separate css.
-- REST-routes support.
 - Flow support.
 - Testing support.
-- Reactive yet functional app example.
-- Replace redux-thunk.
 - FontAwesome support.
+- REST-routes support.
 - Cookie handling.
-- RESTful login example.
-- Custom configs.
