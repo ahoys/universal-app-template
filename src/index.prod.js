@@ -13,14 +13,35 @@
 import debug from 'debug';
 import express from 'express';
 import ServerRenderer from './server';
+import httpProxy from 'http-proxy';
+import cors from 'cors';
 
-debug.disable();
+debug.disable('*');
+
 const app = express();
+app.use(cors());
+app.options('*', cors());
+const apiProxy = httpProxy.createProxyServer();
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+// Proxy error handling.
+apiProxy.on('error', (err, req, res) => {
+  console.log('PROXY ERROR');
+  console.log(err);
+  res.writeHead(500, {
+    'Content-Type': 'text/plain',
+  });
+  res.end('Something went wrong');
+});
+
+// Proxy /api/ calls to localhost to avoid
+// CORS issues.
+app.get('/api*', (req, res) => {
+  apiProxy.web(req, res, {
+    target: {
+      port: 2800,
+      host: 'localhost',
+    },
+  });
 });
 
 app.use(express.static('dist'));
