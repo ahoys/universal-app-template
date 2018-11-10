@@ -1,24 +1,25 @@
-import { Map, List, fromJS } from 'immutable';
+import { Map } from 'immutable';
 
-const getInitialState = () => ({
+const initialState = new Map({
   username: '',
   token: '',
 });
 
 const types = {
-  'REQUEST_SIGN_IN': () => getInitialState(),
-  'RECEIVE_SIGN_IN': (state, action) => ({
-    username: action.payload.username,
-    token: action.payload.token,
-  }),
+  /**
+   * Receives a new sign in.
+   */
+  'RECEIVE_SIGN_IN': ({ state, payload }) => state
+    .set('username', payload.username)
+    .set('token', payload.token),
 };
 
-const account = (state = getInitialState(), action) => {
+export default (state = initialState, action) => {
   if (types[action.type]) {
-    return types[action.type](state, action);
-  } else {
-    return state;
+    return types[action.type]({
+      state,
+      payload: action.payload,
+    });
   }
+  return state;
 }
-
-export default account;

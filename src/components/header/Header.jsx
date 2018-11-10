@@ -15,9 +15,10 @@ const Header = ({ isLoggedIn, username, token, handleLogIn }) => (
 );
 
 const mapStateToProps = (state, props) => ({
-  isLoggedIn: state.account.token !== '' && state.account.username !== '',
-  username: state.account.username,
-  token: state.account.token,
+  isLoggedIn: state.getIn(['account', 'username']) !== ''
+    && state.getIn(['account', 'token']) !== '',
+  username: state.getIn(['account', 'username']),
+  token: state.getIn(['account', 'token']),
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

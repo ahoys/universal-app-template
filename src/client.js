@@ -5,13 +5,14 @@ import createStore from 'reducers';
 import ContextProvider from 'components/ContextProvider';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { fromJS } from 'immutable';
 
 // Enable all debugging if development.
 if (process.env.DEV === 'true') {
   debug.enable('*');
 }
 
-const store = createStore(window.REDUX_DATA);
+const store = createStore(fromJS(window.REDUX_DATA));
 
 const css = new Set();
 const context = {

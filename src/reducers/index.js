@@ -3,7 +3,8 @@ import main from 'cycles';
 import { createCycleMiddleware } from 'redux-cycles';
 import { run } from '@cycle/run';
 import { makeHTTPDriver } from '@cycle/http';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { combineReducers } from 'redux-immutable';
+import { createStore, applyMiddleware } from 'redux';
 
 const configureStore = (initialState) => {  
   const rootReducer = combineReducers({
