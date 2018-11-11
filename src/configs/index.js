@@ -1,10 +1,10 @@
 const fs = require('fs');
-const dc = require('./default_config.json');
+const dc = require('./config.default.json');
 
 // Load custom configs only if available.
 let cc;
-if (fs.existsSync('./custom_config.json')) {
-  cc = require('./custom_config.json');
+if (fs.existsSync('./config.custom.json')) {
+  cc = require('./config.custom.json');
   console.log('Custom configs found.');
 }
 
@@ -23,7 +23,7 @@ if (cc) {
   Object.keys(configs).forEach((setKey) => {
     Object.keys(configs[setKey]).forEach((key) => {
       if (cc[setKey] && cc[setKey][key] !== undefined) {
-        // Read from custom_config.js.
+        // Read from custom config.
         configs[setKey][key] = cc[setKey][key];
       }
     });

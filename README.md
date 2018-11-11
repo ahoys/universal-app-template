@@ -34,10 +34,10 @@ This is work in progress. Make sure to read that TODO-list below.
 - Cookie handling
 
 ## Custom configs or launch parameters
-You can find all the available configs from default_config.json (do not edit the file).
+You can find all the available configs from config.default.json (do not edit the file).
 
-If you want to override some setting, create a new file "src/configs/custom_config.json" and
-use it to override default_config values. You can override them all or just some specific setting. The
-custom_config.json file should not be shared via Git.
+If you want to override some setting, create a new file "src/configs/config.custom.json" and
+use it to override config.default.json values. You can override them all or just some specific setting. The
+config.custom.json file should not be shared via Git.
 
-You can also use launch parameters. All settings you can find from default_config can be overridden with a parameter. For example if you want to change the server port (server.port in default_config), the parameter would be SERVER_PORT=something. REST port parameter would be REST_PORT=something.
+You can also use launch parameters. All settings you can find from config.default.json can be overridden with a launch parameter. For example if you want to change the server port (server.port in config.default.json), the parameter would be SERVER_PORT=something. REST host parameter would be REST_HOST=something.
