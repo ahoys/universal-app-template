@@ -21,7 +21,7 @@ module.exports = {
     },
     module: {
       rules: [
-        { test: /\.(js|jsx|json)$/, use: 'babel-loader', exclude: /node_modules/ },
+        { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
         { test: /\.html$/, use: 'file-loader', exclude: /node_modules/ },
         {
           test: /\.scss$/,
@@ -53,7 +53,7 @@ module.exports = {
     },
     module: {
       rules: [
-        { test: /\.(js|jsx|json)$/, use: 'babel-loader', exclude: /node_modules/ },
+        { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
         { test: /\.html$/, use: 'file-loader', exclude: /node_modules/ },
         {
           test: /\.scss$/,
