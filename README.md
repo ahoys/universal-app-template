@@ -3,7 +3,7 @@
 A general usage boilerplate for various (bigger) projects that require
 performance, security and stability.
 
-This is work in progress. Make sure to read that TODO-list.
+This is work in progress. Make sure to read that TODO-list below.
 
 ### Some goals:
 - As minimum as possible.
@@ -20,18 +20,18 @@ This is work in progress. Make sure to read that TODO-list.
 - SCSS-support
 - SSR
 - CSR
-- Immutable store
-- Reactive yet functional app example.
-- RESTful login example.
-- Custom configs.
+- Fully immutable store
+- Reactive yet functional app example
+- RESTful login example
+- Support developer configs and parameter overriding
 
 ### Big and small TODOs:
-- MiniCssExtractPlugin should separate css.
-- Flow support.
-- Testing support.
-- FontAwesome support.
-- REST-routes support.
-- Cookie handling.
+- MiniCssExtractPlugin should separate CSS
+- Splitting
+- Flow
+- Testing coverage
+- FontAwesome support
+- Cookie handling
 
 ## Custom configs or launch parameters
 You can find all the available configs from default_config.json (do not edit the file).
