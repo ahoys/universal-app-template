@@ -21,7 +21,7 @@ module.exports = {
     },
     module: {
       rules: [
-        { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
+        { test: /\.(js|jsx|json)$/, use: 'babel-loader', exclude: /node_modules/ },
         { test: /\.html$/, use: 'file-loader', exclude: /node_modules/ },
         {
           test: /\.scss$/,
@@ -39,7 +39,7 @@ module.exports = {
         reducers: path.resolve(__dirname, 'src/reducers/'),
         styles: path.resolve(__dirname, 'src/styles/'),
       },
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js', '.jsx', '.json'],
       modules: ['node_modules'],
     },
   },
@@ -53,7 +53,7 @@ module.exports = {
     },
     module: {
       rules: [
-        { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
+        { test: /\.(js|jsx|json)$/, use: 'babel-loader', exclude: /node_modules/ },
         { test: /\.html$/, use: 'file-loader', exclude: /node_modules/ },
         {
           test: /\.scss$/,
@@ -72,7 +72,7 @@ module.exports = {
         reducers: path.resolve(__dirname, 'src/reducers/'),
         styles: path.resolve(__dirname, 'src/styles/'),
       },
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js', '.jsx', '.json'],
       modules: ['node_modules'],
     },
   },

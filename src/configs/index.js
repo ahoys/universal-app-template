@@ -1,10 +1,12 @@
+const path = require('path');
 const fs = require('fs');
 const dc = require('./config.default.json');
 
 // Load custom configs only if available.
 let cc;
-if (fs.existsSync('./config.custom.json')) {
-  cc = require('./config.custom.json');
+const cPath = path.resolve(__dirname, 'config.custom.json');
+if (fs.existsSync(cPath)) {
+  cc = JSON.parse(fs.readFileSync(cPath, 'utf8'));
   console.log('Custom configs found.');
 }
 
