@@ -4,6 +4,7 @@
   },
   "rest": {
     "port": 2800,
-    "host": "localhost"
+    "host": "localhost",
+    "target": "/api"
   }
 }

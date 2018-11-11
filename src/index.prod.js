@@ -34,7 +34,7 @@ apiProxy.on('error', (err, req, res) => {
 
 // Proxy /api/ calls to localhost to avoid
 // CORS issues.
-app.get('/api*', (req, res) => {
+app.get(`${config.rest.target}*`, (req, res) => {
   apiProxy.web(req, res, {
     target: {
       port: config.rest.port,
