@@ -19,9 +19,23 @@ import cors from 'cors';
 
 debug.disable('*');
 
+// Create the Express server.
 const app = express();
-app.use(cors());
-app.options('*', cors());
+
+// Configure CORS.
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || config.cors.origin.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error(`${origin} - not allowed by CORS.`));
+    }
+  },
+  optionsSuccessStatus: config.cors.optionsSuccessStatus,
+  methods: config.cors.methods,
+}));
+
+// Configure proxies.
 const apiProxy = httpProxy.createProxyServer();
 
 // Proxy error handling.

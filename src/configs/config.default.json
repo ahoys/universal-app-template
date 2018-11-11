@@ -6,5 +6,10 @@
     "port": 2800,
     "host": "localhost",
     "target": "/api"
+  },
+  "cors": {
+    "origin": ["localhost"],
+    "optionsSuccessStatus": 200,
+    "methods": ["GET", "PUT", "POST", "DELETE"]
   }
 }
