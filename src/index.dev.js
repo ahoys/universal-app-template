@@ -8,7 +8,7 @@
  * 
  * Production environment will skip this file.
  */
-const config = require('./configs/app_config.js');
+const config = require('./configs/index.js');
 const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');

@@ -1,0 +1,9 @@
+{
+  "server": {
+    "port": 3000
+  },
+  "rest": {
+    "port": 2800,
+    "host": "localhost"
+  }
+}

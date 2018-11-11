@@ -10,7 +10,7 @@
  * 
  * Development environment will skip this file.
  */
-import config from 'configs/app_config.js';
+import config from 'configs';
 import debug from 'debug';
 import express from 'express';
 import ServerRenderer from './server';
