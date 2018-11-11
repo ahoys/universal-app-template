@@ -9,7 +9,7 @@ const types = {
   /**
    * Receives a new sign in.
    */
-  'RECEIVE_SIGN_IN': ({ state, payload }) => state
+  'RECEIVE_ACCOUNT': ({ state, payload }) => state
     .set('username', payload.username)
     .set('token', payload.token),
 };

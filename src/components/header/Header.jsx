@@ -2,7 +2,7 @@ import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import style from './Header.scss';
 import { connect } from 'react-redux';
-import { requestSignIn } from 'actions/actions.account';
+import { signIn } from 'actions/actions.account';
 
 const Header = ({ isLoggedIn, username, token, handleLogIn }) => (
   <div className="Header">
@@ -23,10 +23,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch, props) => ({
   handleLogIn: () => {
-    dispatch(requestSignIn({
-      username: 'ADMIN',
-      password: 'ADMIN',
-    }));
+    dispatch(signIn('ADMIN', 'ADMIN'));
   },
 });
 

@@ -1,4 +1,4 @@
-import { cycleSignIn } from './cycles.account';
+import { requestSignIn } from './cycles.account';
 import { combineCycles } from 'redux-cycles';
 
-export default combineCycles(cycleSignIn);
+export default combineCycles(requestSignIn);

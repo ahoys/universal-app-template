@@ -1,6 +1,6 @@
-import { receiveSignIn } from 'actions/actions.account';
+import { receiveAccount } from 'actions/actions.account';
 
-export const cycleSignIn = (sources) => {
+export const requestSignIn = (sources) => {
   // Cause.
   const request = sources.ACTION
     .filter(action => action.type === 'REQUEST_SIGN_IN')
@@ -16,7 +16,7 @@ export const cycleSignIn = (sources) => {
   const response = sources.HTTP
     .select('request_sign_in')
     .flatten()
-    .map(res => receiveSignIn(
+    .map(res => receiveAccount(
       res.body && res.body.username ? res.body.username : '',
       res.body && res.body['X-RQ-Token'] ? res.body['X-RQ-Token'] : '',
     ));
