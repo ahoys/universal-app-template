@@ -20,6 +20,7 @@ const App = () => (
     <UniversalHeader />
     <Content>
       <Navigator>
+        <Link to="/">Home</Link>
         <Link to="/dashboard">Go to dashboard</Link>
         <Link to="/settings">Go to settings</Link>
       </Navigator>
