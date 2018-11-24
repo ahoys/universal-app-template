@@ -14,7 +14,9 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotServerMiddleware = require('webpack-hot-server-middleware');
 const httpProxy = require('http-proxy');
-const compiler = webpack(require('../webpack.development.js'));
+const clientConfig = require('../webpack/client.development');
+const serverConfig = require('../webpack/server.development');
+const compiler = webpack([clientConfig, serverConfig]);
 const cors = require('cors');
 
 // Enable development environment for the client.
