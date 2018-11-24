@@ -18,6 +18,7 @@ module.exports = {
     output: {
       path: path.resolve(__dirname, 'dist/'),
       filename: 'server.js',
+      chunkFilename: '[name].[chunkhash].server.js',
     },
     module: {
       rules: [
@@ -36,6 +37,7 @@ module.exports = {
         components: path.resolve(__dirname, 'src/components/'),
         configs: path.resolve(__dirname, 'src/configs/'),
         cycles: path.resolve(__dirname, 'src/cycles/'),
+        dist: path.resolve(__dirname, 'dist/'),
         reducers: path.resolve(__dirname, 'src/reducers/'),
         styles: path.resolve(__dirname, 'src/styles/'),
       },
@@ -50,6 +52,7 @@ module.exports = {
     output: {
       path: path.resolve(__dirname, 'dist/'),
       filename: 'client.js',
+      chunkFilename: '[name].[chunkhash].client.js',
     },
     module: {
       rules: [
@@ -64,11 +67,11 @@ module.exports = {
     },
     resolve: {
       alias: {
-        dist: path.resolve(__dirname, 'dist/'),
         actions: path.resolve(__dirname, 'src/actions/'),
         components: path.resolve(__dirname, 'src/components/'),
         configs: path.resolve(__dirname, 'src/configs/'),
         cycles: path.resolve(__dirname, 'src/cycles/'),
+        dist: path.resolve(__dirname, 'dist/'),
         reducers: path.resolve(__dirname, 'src/reducers/'),
         styles: path.resolve(__dirname, 'src/styles/'),
       },

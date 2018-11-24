@@ -16,9 +16,11 @@ import fs from 'fs';
 import serialize from 'serialize-javascript';
 import ContextProvider from 'components/ContextProvider';
 import createStore from 'reducers';
+import flushChunks from 'webpack-flush-chunks'
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
 import { Map } from 'immutable';
+import { clearChunks, flushChunkNames } from 'react-universal-component/server'
 
 // Create initial context
 // and initialize stores.
@@ -30,7 +32,7 @@ const indexFile = path.resolve('src/index.html');
 const basename = process.env.BASENAME || '';
 
 // Handle rendered pages to clients.
-export default () => (req, res, next) => {
+export default ({ clientStats }) => (req, res, next) => {
   const css = new Set();
   const context = {
     insertCss: (...styles) => styles.forEach(style => css.add(style._getCss())),
@@ -46,6 +48,11 @@ export default () => (req, res, next) => {
       </StaticRouter>
     </Provider>
   );
+  // Code splitting.
+  clearChunks();
+  const { js, styles, cssHash } = flushChunks(clientStats, {
+    chunkNames: flushChunkNames(),
+  });
   fs.readFile(indexFile, 'utf8', (err, indexData) => {
     // 500: Error.
     if (err) {
@@ -65,10 +72,21 @@ export default () => (req, res, next) => {
       indexData
         .replace('<div id="root"></div>', `<div id="root">${client}</div>`)
         .replace(
-          '</body>',
+          '<script name="store"></script>',
           `<script>window.REDUX_DATA = ${serialize(store.getState())}</script></body>`,
         )
-        .replace('</body>', '<script src="./client.js"></script>')
+        .replace(
+          '<style name="styles"></style>',
+          styles,
+        )
+        .replace(
+          '<script name="cssHash"></script>',
+          cssHash,
+        )
+        .replace(
+          '<script name="js"></script>',
+          js,
+        )
         .replace(
           '<style type="text/css"></style>',
           `<style type="text/css">${[...css].join('')}</style>`

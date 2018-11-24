@@ -1,21 +1,23 @@
 import React from 'react';
-import Header from 'components/header/Header';
 import Content from 'components/content/Content';
 import Navigator from 'components/navigator/Navigator';
 import View from 'components/view/View';
-import Footer from 'components/footer/Footer';
-import Dashboard from 'components/dashboard/Dashboard';
-import Settings from 'components/settings/Settings';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import style from 'components/App.scss';
+import universal from 'react-universal-component';
 import { Switch, Route, Link } from 'react-router-dom';
+
+const UniversalHeader = universal(import('components/header/Header'));
+const UniversalFooter = universal(import('components/footer/Footer'));
+const UniversalDashboard = universal(import('components/dashboard/Dashboard'));
+const UniversalSettings = universal(import('components/settings/Settings'));
 
 /**
  * The main React-application starts from here.
  */
 const App = () => (
   <div className="App">
-    <Header />
+    <UniversalHeader />
     <Content>
       <Navigator>
         <Link to="/dashboard">Go to dashboard</Link>
@@ -23,12 +25,12 @@ const App = () => (
       </Navigator>
       <View>
         <Switch>
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/settings" component={Settings} />
+          <Route exact path="/dashboard" component={UniversalDashboard} />
+          <Route exact path="/settings" component={UniversalSettings} />
         </Switch>
       </View>
     </Content>
-    <Footer />
+    <UniversalFooter />
   </div>
 );
 
