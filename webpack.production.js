@@ -35,14 +35,14 @@ module.exports = merge.multiple(common, {
         // Cleans the destination folder before building new.
         new CleanWebpackPlugin([destination]),
         new webpack.optimize.LimitChunkCountPlugin({
-          maxChunks: 1,                               
+          maxChunks: 1,
         }),
       ]
       : [
         // To avoid warnings in builds.
         new webpack.DefinePlugin({ "global.GENTLY": false }),
         new webpack.optimize.LimitChunkCountPlugin({
-          maxChunks: 1,                               
+          maxChunks: 1,
         }),
       ],
   },
