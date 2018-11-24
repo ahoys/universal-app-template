@@ -36,7 +36,7 @@ module.exports = {
       styles: path.resolve(__dirname, '../src/styles/'),
     },
     extensions: ['.js', '.jsx', '.json'],
-    modules: ['node_modules'],
+    modules: [path.resolve(__dirname, '../node_modules/')],
   },
   plugins: [
     // To avoid warnings in builds.
