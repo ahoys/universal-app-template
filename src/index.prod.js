@@ -2,12 +2,6 @@
  * index.prod.js
  * 
  * Root of production environment.
- * 
- * You should never call this file directly, instead,
- * build the project with webpack.production configs to create a
- * proper /dist and then use "node dist/server"
- * to kick off the server.
- * 
  * Development environment will skip this file.
  */
 import config from 'configs';

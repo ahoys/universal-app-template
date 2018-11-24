@@ -2,11 +2,9 @@
  * index.dev.js
  * 
  * Root of development environment.
- * 
- * Package.json should call this file directly "node src/index.dev". Do not
- * webpack this file.
- * 
  * Production environment will skip this file.
+ * 
+ * Do not webpack this file.
  */
 const config = require('./configs/index.js');
 const express = require('express');
