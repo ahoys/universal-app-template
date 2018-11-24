@@ -27,10 +27,20 @@ module.exports = merge.multiple(common, {
     plugins: [
       // To avoid warnings in builds.
       new webpack.DefinePlugin({ "global.GENTLY": false }),
+      // Servers should not split.
+      new webpack.optimize.LimitChunkCountPlugin({
+        maxChunks: 1,
+      }),
     ],
   },
   client: {
     mode: 'development',
     devtool: 'eval-source-map',
+    plugins: [
+      // Dev environment should not split.
+      new webpack.optimize.LimitChunkCountPlugin({
+        maxChunks: 1,
+      }),
+    ],
   },
 });
