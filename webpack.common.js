@@ -18,7 +18,6 @@ module.exports = {
     output: {
       path: path.resolve(__dirname, 'dist/'),
       filename: 'server.js',
-      chunkFilename: '[name].[chunkhash].server.js',
     },
     module: {
       rules: [
@@ -51,7 +50,8 @@ module.exports = {
     entry: './src/client.js',
     output: {
       path: path.resolve(__dirname, 'dist/'),
-      filename: 'client.js',
+      // Hash so that we can safely cache.
+      filename: 'client.[chunkhash].js',
       chunkFilename: '[name].[chunkhash].client.js',
     },
     module: {
