@@ -13,6 +13,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const StatsPlugin = require('stats-webpack-plugin');
+const GitRevisionPlugin = require('git-revision-webpack-plugin');
 const common = require('./webpack.common.js');
 
 // The built files will go here.
@@ -44,6 +45,7 @@ module.exports = merge.multiple(common, {
         new webpack.optimize.LimitChunkCountPlugin({
           maxChunks: 1,
         }),
+        new GitRevisionPlugin(),
       ],
   },
   client: {
