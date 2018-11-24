@@ -45,6 +45,8 @@ module.exports = merge.multiple(common, {
         new webpack.optimize.LimitChunkCountPlugin({
           maxChunks: 1,
         }),
+        // This will add git version information to dist.
+        // Can be useful in determining build version.
         new GitRevisionPlugin(),
       ],
   },
