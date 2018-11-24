@@ -34,10 +34,16 @@ module.exports = merge.multiple(common, {
       ? [
         // Cleans the destination folder before building new.
         new CleanWebpackPlugin([destination]),
+        new webpack.optimize.LimitChunkCountPlugin({
+          maxChunks: 1,                               
+        }),
       ]
       : [
         // To avoid warnings in builds.
         new webpack.DefinePlugin({ "global.GENTLY": false }),
+        new webpack.optimize.LimitChunkCountPlugin({
+          maxChunks: 1,                               
+        }),
       ],
   },
   client: {
@@ -49,36 +55,5 @@ module.exports = merge.multiple(common, {
         new StatsPlugin('stats.json'),
       ]
       : [],
-    optimization: {
-      splitChunks: {
-        chunks: 'async',
-        minSize: 30000,
-        minChunks: 1,
-        maxAsyncRequests: 5,
-        maxInitialRequests: 3,
-        automaticNameDelimiter: '~',
-        name: true,
-        cacheGroups: {
-          commons: {
-            chunks: 'initial',
-            minChunks: 2,
-            maxInitialRequests: 5,
-            minSize: 0,
-          },
-          vendor: {
-            test: /node_modules/,
-            chunks: 'initial',
-            name: 'vendor',
-            priority: 10,
-            enforce: true,
-          },
-          default: {
-            minChunks: 2,
-            priority: -20,
-            reuseExistingChunk: true,
-          }
-        },
-      },
-    },
   },
 });
