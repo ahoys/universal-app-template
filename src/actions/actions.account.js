@@ -26,6 +26,10 @@ export const receiveAccount = (username, token) => {
     payload: {
       username,
       token,
+      inSession: typeof username === 'string'
+        && username.trim() !== ''
+        && typeof token === 'string'
+        && token.trim() !== ''
     },
   };
 };

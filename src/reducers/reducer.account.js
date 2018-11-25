@@ -3,6 +3,7 @@ import { Map } from 'immutable';
 const initialState = new Map({
   username: '',
   token: '',
+  inSession: false,
 });
 
 const types = {
@@ -11,7 +12,8 @@ const types = {
    */
   'RECEIVE_ACCOUNT': ({ state, payload }) => state
     .set('username', payload.username)
-    .set('token', payload.token),
+    .set('token', payload.token)
+    .set('inSession', payload.inSession),
 };
 
 export default (state = initialState, action) => {
