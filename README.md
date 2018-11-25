@@ -24,10 +24,9 @@ This is work in progress. Make sure to read that TODO-list below.
 - Reactive yet functional app example
 - RESTful login example
 - Support developer configs and parameter overriding
+- Splitting
 
 ### Big and small TODOs:
-- MiniCssExtractPlugin should separate CSS
-- Splitting
 - Flow
 - Testing coverage
 - FontAwesome support
