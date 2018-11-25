@@ -10,7 +10,6 @@
  */
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import path from 'path';
 import fs from 'fs';
 import serialize from 'serialize-javascript';
 import ContextProvider from 'components/ContextProvider';
@@ -24,7 +23,7 @@ import { clearChunks, flushChunkNames } from 'react-universal-component/server'
 // Create initial context
 // and initialize stores.
 const store = createStore(new Map({}));
-const indexFile = path.resolve('src/index.html');
+const indexFile = 'src/index.html';
 
 // A properly formatted basename should have a leading slash, but no trailing slash.
 // https://reacttraining.com/react-router/core/api/StaticRouter/basename-string
