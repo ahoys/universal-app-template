@@ -1,10 +1,9 @@
 /**
- * server.js
+ * serverRenderer.js
  * 
  * Here we clue things together.
  * Client (including the React app) is embedded into
- * a basic html frame (index.html) and served to
- * the clients.
+ * a basic html frame (index.html) and served to clients.
  * 
  * Both development and production environments
  * utilize this file.

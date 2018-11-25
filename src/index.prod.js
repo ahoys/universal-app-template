@@ -7,7 +7,7 @@
 import config from 'configs';
 import debug from 'debug';
 import express from 'express';
-import ServerRenderer from './server';
+import serverRenderer from './serverRenderer';
 import httpProxy from 'http-proxy';
 import cors from 'cors';
 import clientStats from 'dist/stats.json';
@@ -54,7 +54,7 @@ app.get(`${config.rest.target}*`, (req, res) => {
 
 app.use(express.static('dist'));
 
-app.use(ServerRenderer({ clientStats }));
+app.use(serverRenderer({ clientStats }));
 
 app.listen(config.server.port, () => {
   console.log(`Production server is listening on port ${config.server.port}.`);

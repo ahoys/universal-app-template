@@ -10,7 +10,7 @@ module.exports = {
   mode: 'development',
   target: 'node',
   devtool: 'eval-source-map',
-  entry: path.resolve(__dirname, '../src/server.js'),
+  entry: path.resolve(__dirname, '../src/serverRenderer.js'),
   output: {
     publicPath: '/',
     libraryTarget: 'commonjs2',
