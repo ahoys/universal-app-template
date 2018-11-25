@@ -12,6 +12,9 @@ This is work in progress. Make sure to read that TODO-list below.
 - Clean separation of development and production.
 - REST-routing & content support.
 - Not even minor vulnerabilities via 3rd party modules.
+- Production server should not need npm installed.
+- Lazy loaded React-components, cacheable vendors.
+- No tricks, only production proven solutions.
 
 ### Already implemented features:
 - React
@@ -21,10 +24,11 @@ This is work in progress. Make sure to read that TODO-list below.
 - SSR
 - CSR
 - Fully immutable store
-- Reactive yet functional app example
+- Suitable for FRP
 - RESTful login example
-- Support developer configs and parameter overriding
-- Splitting
+- Support for local developer configs and parameter overriding
+- Comprehensive splitting
+- Everything is bundled
 
 ### Big and small TODOs:
 - Flow
