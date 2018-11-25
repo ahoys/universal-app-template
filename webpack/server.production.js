@@ -8,20 +8,32 @@ const path = require('path');
 const webpack = require('webpack');
 const GitRevisionPlugin = require('git-revision-webpack-plugin');
 
+// Root paths.
+const dist = path.resolve(__dirname, '../dist');
+const src = path.resolve(__dirname, '../src');
+
 module.exports = {
   mode: 'production',
   name: 'server',
   target: 'node',
   devtool: 'nosources-source-map',
-  entry: path.resolve(__dirname, '../src/index.prod.js'),
+  entry: `${src}/index.prod.js`,
   output: {
-    path: path.resolve(__dirname, '../dist/'),
+    path: dist,
     filename: 'server.js',
   },
   module: {
     rules: [
-      { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.html$/, use: 'file-loader', exclude: /node_modules/ },
+      {
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.html$/,
+        use: 'file-loader',
+        exclude: /node_modules/,
+      },
       {
         test: /\.scss$/,
         use: ['isomorphic-style-loader', 'css-loader', 'sass-loader'],
@@ -31,16 +43,16 @@ module.exports = {
   },
   resolve: {
     alias: {
-      actions: path.resolve(__dirname, '../src/actions/'),
-      components: path.resolve(__dirname, '../src/components/'),
-      configs: path.resolve(__dirname, '../src/configs/'),
-      cycles: path.resolve(__dirname, '../src/cycles/'),
-      dist: path.resolve(__dirname, '../dist/'),
-      reducers: path.resolve(__dirname, '../src/reducers/'),
-      styles: path.resolve(__dirname, '../src/styles/'),
+      actions: `${src}/actions/`,
+      components: `${src}/components/`,
+      configs: `${src}/configs/`,
+      cycles: `${src}/cycles/`,
+      dist,
+      reducers: `${src}/reducers/`,
+      styles: `${src}/styles/`,
     },
     extensions: ['.js', '.jsx', '.json'],
-    modules: [path.resolve(__dirname, '../node_modules/')],
+    modules: ['node_modules'],
   },
   plugins: [
     // To avoid warnings in builds.
