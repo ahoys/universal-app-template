@@ -52,19 +52,17 @@ module.exports = {
   ],
   optimization: {
     splitChunks: {
+      chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 0,
       cacheGroups: {
-        commons: {
-          chunks: "initial",
-          minChunks: 2,
-          maxInitialRequests: 5,
-          minSize: 0,
-        },
+        // With HTTP/2 it is better to have many small files versus one big.
         vendor: {
-          test: /node_modules/,
-          chunks: "initial",
-          name: "vendor",
-          priority: 10,
-          enforce: true,
+          test: /[\\/]node_modules[\\/]/,
+          name(module) {
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+            return `npm.${packageName.replace('@', '')}`;
+          }
         },
       },
     },
