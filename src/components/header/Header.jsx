@@ -2,8 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { requestSession } from 'actions/actions.session';
 
+const style = {
+  background: 'black',
+  color: 'white',
+};
+
 const Header = ({ isLoggedIn, username, token, handleLogIn }) => (
-  <div className="Header">
+  <div style={style}>
     {
       isLoggedIn
       ? <div>{`Logged in! Welcome ${username} of token ${token}`}</div>

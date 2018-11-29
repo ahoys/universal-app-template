@@ -63,6 +63,7 @@ export default ({ clientStats }) => (req, res, next) => {
         <title>Universal App</title>
         <meta name="description" content="Universal App">
         <meta name="author" content="Ari Höysniemi">
+        <style type="text/css">html,body{margin:0;padding:0;}</style>
       </head>
       <body>
         <div id="root">${client}</div>
