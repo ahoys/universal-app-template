@@ -40,6 +40,7 @@ const App = ({ inSession }) => {
     )
     : (
       <div className="App">
+        <UniversalDashboard />
         <UniversalLogin />
       </div>
     );

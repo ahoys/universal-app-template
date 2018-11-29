@@ -1,9 +1,9 @@
 import React from 'react';
+import style from './Dashboard.scss';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
-export default class Dashboard extends React.Component {
-  render() {
-    return (
-      <div>This is Dashboard</div>
-    );
-  }
-}
+const Dashboard = () => (
+  <div className="Dashboard">This is Dashboard</div>
+);
+
+export default withStyles(style)(Dashboard);
