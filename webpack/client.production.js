@@ -31,11 +31,6 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.html$/,
-        use: 'file-loader',
-        exclude: /node_modules/
-      },
-      {
         test: /\.scss$/,
         use: ['isomorphic-style-loader', 'css-loader', 'sass-loader'],
         exclude: /node_modules/,
