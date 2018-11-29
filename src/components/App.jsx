@@ -7,7 +7,7 @@ import Footer from 'components/footer/Footer';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import style from 'components/App.scss';
 import universal from 'react-universal-component';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const UniversalLogin = universal(import('components/login/Login'));
@@ -17,7 +17,7 @@ const UniversalSettings = universal(import('components/settings/Settings'));
 /**
  * The main React-application starts from here.
  */
-const App = ({ inSession }) => (
+const App = ({ inSession, location }) => (
   <div className="App">
     <Header />
     <Content>
@@ -27,7 +27,7 @@ const App = ({ inSession }) => (
         <Link to="/settings">Go to settings</Link>
         { inSession ? null : <Link to="/login">Login</Link> }
       </Navigator>
-      <View>
+      <View location={location}>
         <Switch>
           <Route exact path="/dashboard" component={UniversalDashboard} />
           <Route exact path="/settings" component={UniversalSettings} />
@@ -43,6 +43,6 @@ const mapStateToProps = (state) => ({
   inSession: state.getIn(['session', 'inSession']),
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
-)(withStyles(style)(App));
+)(withStyles(style)(App)));
