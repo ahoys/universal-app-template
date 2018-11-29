@@ -18,11 +18,6 @@ module.exports = {
   module: {
     rules: [
       { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
-      {
-        test: /\.scss$/,
-        use: ['isomorphic-style-loader', 'css-loader', 'sass-loader'],
-        exclude: /node_modules/,
-      },
     ],
   },
   resolve: {
@@ -32,7 +27,6 @@ module.exports = {
       configs: path.resolve(__dirname, '../src/configs/'),
       cycles: path.resolve(__dirname, '../src/cycles/'),
       reducers: path.resolve(__dirname, '../src/reducers/'),
-      styles: path.resolve(__dirname, '../src/styles/'),
     },
     extensions: ['.js', '.jsx', '.json'],
     modules: [path.resolve(__dirname, '../node_modules/')],

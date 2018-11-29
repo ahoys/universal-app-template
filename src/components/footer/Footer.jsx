@@ -1,6 +1,4 @@
 import React from 'react';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import style from './Footer.scss';
 
 const Footer = () => (
   <div className="Footer">
@@ -8,4 +6,4 @@ const Footer = () => (
   </div>
 );
 
-export default withStyles(style)(Footer);
+export default Footer;

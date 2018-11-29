@@ -4,8 +4,6 @@ import Content from 'components/content/Content';
 import Navigator from 'components/navigator/Navigator';
 import View from 'components/view/View';
 import Footer from 'components/footer/Footer';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import style from 'components/App.scss';
 import universal from 'react-universal-component';
 import { Switch, Route, Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -45,4 +43,4 @@ const mapStateToProps = (state) => ({
 
 export default withRouter(connect(
   mapStateToProps,
-)(withStyles(style)(App)));
+)(App));

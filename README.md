@@ -20,7 +20,6 @@ This is work in progress. Make sure to read that TODO-list below.
 - React
 - Redux
 - Routing
-- SCSS-support
 - SSR
 - CSR
 - Fully immutable store

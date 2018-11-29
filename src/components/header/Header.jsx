@@ -1,6 +1,4 @@
 import React from 'react';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import style from './Header.scss';
 import { connect } from 'react-redux';
 import { requestSession } from 'actions/actions.session';
 
@@ -30,4 +28,4 @@ const mapDispatchToProps = (dispatch, props) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withStyles(style)(Header));
+)(Header);

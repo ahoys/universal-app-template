@@ -11,7 +11,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import serialize from 'serialize-javascript';
-import ContextProvider from 'components/ContextProvider';
+import App from 'components/App';
 import createStore from 'reducers';
 import flushChunks from 'webpack-flush-chunks'
 import { Provider } from 'react-redux';
@@ -29,10 +29,7 @@ const basename = process.env.BASENAME || '';
 
 // Handle rendered pages to clients.
 export default ({ clientStats }) => (req, res, next) => {
-  const css = new Set();
-  const context = {
-    insertCss: (...styles) => styles.forEach(style => css.add(style._getCss())),
-  };
+  const context = {};
   const client = ReactDOMServer.renderToString(
     <Provider store={store}>
       <StaticRouter
@@ -40,13 +37,13 @@ export default ({ clientStats }) => (req, res, next) => {
         location={req.url}
         context={context}
       >
-        <ContextProvider context={context} />
+        <App context={context} />
       </StaticRouter>
     </Provider>
   );
   // Code splitting.
   clearChunks();
-  const { js, styles, cssHash } = flushChunks(clientStats, {
+  const { js } = flushChunks(clientStats, {
     chunkNames: flushChunkNames(),
   });
   // 404: Not found.
@@ -66,13 +63,10 @@ export default ({ clientStats }) => (req, res, next) => {
         <title>Universal App</title>
         <meta name="description" content="Universal App">
         <meta name="author" content="Ari Höysniemi">
-        <style type="text/css">${[...css].join('')}</style>
-        ${styles}
       </head>
       <body>
         <div id="root">${client}</div>
         <script type='text/javascript'>window.REDUX_DATA = ${serialize(store.getState())}</script>
-        ${cssHash}
         ${js}
       </body>
     </html>

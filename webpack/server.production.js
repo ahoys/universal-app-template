@@ -29,11 +29,6 @@ module.exports = {
         use: 'babel-loader',
         exclude: /node_modules/,
       },
-      {
-        test: /\.scss$/,
-        use: ['isomorphic-style-loader', 'css-loader', 'sass-loader'],
-        exclude: /node_modules/,
-      },
     ],
   },
   resolve: {
@@ -44,7 +39,6 @@ module.exports = {
       cycles: `${src}/cycles/`,
       dist,
       reducers: `${src}/reducers/`,
-      styles: `${src}/styles/`,
     },
     extensions: ['.js', '.jsx', '.json'],
     modules: ['node_modules'],

@@ -1,6 +1,4 @@
 import React from 'react';
-import style from './Login.scss';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { connect } from 'react-redux';
 import { requestSession } from 'actions/actions.session';
 
@@ -62,4 +60,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withStyles(style)(Login));
+)(Login);
