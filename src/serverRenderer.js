@@ -71,9 +71,9 @@ export default ({ clientStats }) => (req, res, next) => {
       </head>
       <body>
         <div id="root">${client}</div>
+        <script type='text/javascript'>window.REDUX_DATA = ${serialize(store.getState())}</script>
         ${cssHash}
         ${js}
-        <script>window.REDUX_DATA = ${serialize(store.getState())}</script>
       </body>
     </html>
   `)
