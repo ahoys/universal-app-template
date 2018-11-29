@@ -2,7 +2,7 @@ import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import style from './Header.scss';
 import { connect } from 'react-redux';
-import { signIn } from 'actions/actions.account';
+import { requestSession } from 'actions/actions.session';
 
 const Header = ({ isLoggedIn, username, token, handleLogIn }) => (
   <div className="Header">
@@ -15,15 +15,15 @@ const Header = ({ isLoggedIn, username, token, handleLogIn }) => (
 );
 
 const mapStateToProps = (state, props) => ({
-  isLoggedIn: state.getIn(['account', 'username']) !== ''
-    && state.getIn(['account', 'token']) !== '',
-  username: state.getIn(['account', 'username']),
-  token: state.getIn(['account', 'token']),
+  isLoggedIn: state.getIn(['session', 'username']) !== ''
+    && state.getIn(['session', 'token']) !== '',
+  username: state.getIn(['session', 'username']),
+  token: state.getIn(['session', 'token']),
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
   handleLogIn: () => {
-    dispatch(signIn('ADMIN', 'ADMIN'));
+    dispatch(requestSession('ADMIN', 'ADMIN'));
   },
 });
 

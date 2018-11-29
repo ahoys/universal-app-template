@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Login.scss';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { connect } from 'react-redux';
-import { signIn } from 'actions/actions.account';
+import { requestSession } from 'actions/actions.session';
 
 class Login extends React.Component {
   constructor() {
@@ -53,9 +53,9 @@ class Login extends React.Component {
 
 const mapStateToProps = () => ({});
 
-const mapDispatchToProps = (dispatch, props) => ({
+const mapDispatchToProps = (dispatch) => ({
   handleLogIn: (username, password) => {
-    dispatch(signIn(username, password));
+    dispatch(requestSession(username, password));
   },
 });
 

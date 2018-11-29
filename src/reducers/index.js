@@ -1,4 +1,4 @@
-import account from './reducer.account';
+import session from './reducer.session';
 import main from 'cycles';
 import { createCycleMiddleware } from 'redux-cycles';
 import { run } from '@cycle/run';
@@ -8,7 +8,7 @@ import { createStore, applyMiddleware } from 'redux';
 
 const configureStore = (initialState) => {  
   const rootReducer = combineReducers({
-    account,
+    session,
   });
   const cycleMiddleware = createCycleMiddleware();
   const { makeActionDriver, makeStateDriver } = cycleMiddleware;

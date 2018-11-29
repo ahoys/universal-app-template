@@ -46,7 +46,7 @@ const App = ({ inSession }) => {
 };
 
 const mapStateToProps = (state) => ({
-  inSession: state.getIn(['account', 'inSession']),
+  inSession: state.getIn(['session', 'inSession']),
 });
 
 export default connect(

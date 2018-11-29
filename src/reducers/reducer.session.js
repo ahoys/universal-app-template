@@ -7,21 +7,14 @@ const initialState = new Map({
 });
 
 const types = {
-  /**
-   * Receives a new sign in.
-   */
-  'RECEIVE_ACCOUNT': ({ state, payload }) => state
+  'RECEIVE_SESSION': ({ state, payload }) => state
     .set('username', payload.username)
     .set('token', payload.token)
     .set('inSession', payload.inSession),
 };
 
 export default (state = initialState, action) => {
-  if (types[action.type]) {
-    return types[action.type]({
-      state,
-      payload: action.payload,
-    });
-  }
-  return state;
+  return types[action.type]
+  ? types[action.type]({ state, payload: action.payload })
+  : state;
 }
