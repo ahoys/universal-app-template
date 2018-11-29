@@ -20,7 +20,6 @@
     "express": "^4.16.4",
     "http-proxy": "^1.17.0",
     "immutable": "^4.0.0-rc.12",
-    "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.0",
