@@ -28,6 +28,7 @@ This is work in progress. Make sure to read that TODO-list below.
 - Support for local developer configs and parameter overriding
 - Comprehensive splitting
 - Everything is bundled
+- Styled-components
 
 ### Big and small TODOs:
 - Flow
