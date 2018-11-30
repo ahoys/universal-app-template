@@ -1,0 +1,14 @@
+[ignore]
+.*/__tests__/.*
+<PROJECT_ROOT>/node_modules/react-universal-component/.*\.flow
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+module.name_mapper='^components' ->'<PROJECT_ROOT>/src/components'
+
+[strict]

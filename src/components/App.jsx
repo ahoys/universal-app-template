@@ -1,4 +1,5 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import Header from 'components/header/Header';
 import Content from 'components/content/Content';
 import Navigator from 'components/navigator/Navigator';
@@ -15,6 +16,11 @@ const UniversalLogin = universal(import('components/login/Login'));
 const UniversalDashboard = universal(import('components/dashboard/Dashboard'));
 const UniversalSettings = universal(import('components/settings/Settings'));
 
+type Props = {
+  inSession: boolean,
+  location: string,
+}
+
 const Style = styled.div`
   position: absolute;
   width: 100vw;
@@ -25,7 +31,7 @@ const Style = styled.div`
 /**
  * The main React-application starts from here.
  */
-const App = ({ inSession, location }) => (
+const App = (props: Props) => (
   <ThemeProvider theme={theme}>
     <Style>
       <Header />
@@ -34,7 +40,7 @@ const App = ({ inSession, location }) => (
           <Link to="/">Home</Link>
           <Link to="/dashboard">Go to dashboard</Link>
           <Link to="/settings">Go to settings</Link>
-          { inSession ? null : <Link to="/login">Login</Link> }
+          { props.inSession ? null : <Link to="/login">Login</Link> }
         </Navigator>
         <View location={location}>
           <Switch>
