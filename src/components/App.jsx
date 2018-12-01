@@ -5,28 +5,28 @@ import Content from 'components/content/Content';
 import Navigator from 'components/navigator/Navigator';
 import View from 'components/view/View';
 import Footer from 'components/footer/Footer';
-import universal from 'react-universal-component';
+import universal, { type UniversalType } from 'react-universal-component';
 import commonThemes from './commonThemes';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider, type StyledType } from 'styled-components';
 import { Switch, Route, Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 // Dynamically loaded sub-components.
-const UniversalLogin = universal(import('components/login/Login'));
-const UniversalDashboard = universal(import('components/dashboard/Dashboard'));
-const UniversalSettings = universal(import('components/settings/Settings'));
+const UniversalLogin: UniversalType = universal(import('components/login/Login'));
+const UniversalDashboard: UniversalType = universal(import('components/dashboard/Dashboard'));
+const UniversalSettings: UniversalType = universal(import('components/settings/Settings'));
 
 type Props = {
   inSession: boolean,
   location: string,
 }
 
-const Style = styled.div`
+const Style: Function = (styled.div`
   position: absolute;
   width: 100vw;
   height: 100vh;
   background: ${commonThemes.body.background};
-`;
+`);
 
 /**
  * The main React-application starts from here.
@@ -55,7 +55,11 @@ const App: React.StatelessFunctionalComponent<Props> = ({ inSession, location })
   </ThemeProvider>
 );
 
-const mapStateToProps = (state) => ({
+type State = {
+  inSession: boolean,
+}
+
+const mapStateToProps = (state: Function): State => ({
   inSession: state.getIn(['session', 'inSession']),
 });
 
