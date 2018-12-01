@@ -17,10 +17,6 @@ const serverConfig = require('../webpack/server.development');
 const compiler = webpack([clientConfig, serverConfig]);
 const cors = require('cors');
 
-// Enable development environment for the client.
-// For example debug logging is enabled by this.
-process.env.DEV = 'true';
-
 // Create the Express server.
 const app = express();
 

@@ -8,8 +8,9 @@ import { Provider } from 'react-redux';
 import { fromJS } from 'immutable';
 
 // Enable all debugging if development.
-if (process.env.DEV === 'true') {
+if (process.env.NODE_ENV === 'development') {
   debug.enable('*');
+  debug('client.js')('This is a development build.');
 }
 
 const store = createStore(fromJS(window.REDUX_DATA));
