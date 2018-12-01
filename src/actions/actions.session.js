@@ -1,26 +1,5 @@
 // @flow
-
-type RequestSessionAction = {
-  +type: 'REQUEST_SESSION',
-  +payload: {
-    +username: string,
-    +password: string,
-    +lang: string,
-    +relogin: 'true' | 'false',
-  },
-};
-type ReceiveSessionAction = {
-  +type: 'RECEIVE_SESSION',
-  +payload: {
-    +username: string,
-    +token: string,
-    +inSession: boolean,
-  },
-};
-
-type Action =
-  | RequestSessionAction
-  | ReceiveSessionAction;
+import { RequestSessionAction, ReceiveSessionAction } from './actions.session.flow';
 
 /**
  * Requests a new session.
@@ -49,6 +28,6 @@ export const receiveSession = ( username: string, token: string ): ReceiveSessio
   payload: {
     username,
     token,
-    inSession: !!username && !!token,
+    inSession: username && token,
   },
 });
