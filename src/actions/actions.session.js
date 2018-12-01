@@ -6,7 +6,7 @@ type RequestSessionAction = {
     +username: string,
     +password: string,
     +lang: string,
-    +relogin: string,
+    +relogin: 'true' | 'false',
   },
 };
 type ReceiveSessionAction = {
