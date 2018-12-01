@@ -35,6 +35,7 @@ This is work in progress. Make sure to read that TODO-list below.
 - Testing coverage
 - FontAwesome support
 - Cookie handling
+- Linting
 
 ## Custom configs or launch parameters
 You can find all the available configs from config.default.json (do not edit the file).
