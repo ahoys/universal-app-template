@@ -6,7 +6,7 @@ import Navigator from 'components/navigator/Navigator';
 import View from 'components/view/View';
 import Footer from 'components/footer/Footer';
 import universal from 'react-universal-component';
-import theme from './globalTheme';
+import commonThemes from './commonThemes';
 import styled, { ThemeProvider } from 'styled-components';
 import { Switch, Route, Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -25,14 +25,14 @@ const Style = styled.div`
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background: ${props => props.theme.body.background};
+  background: ${commonThemes.body.background};
 `;
 
 /**
  * The main React-application starts from here.
  */
-const App = (props: Props) => (
-  <ThemeProvider theme={theme}>
+const App: React.StatelessFunctionalComponent<Props> = ({ inSession, location }) => (
+  <ThemeProvider theme={commonThemes}>
     <Style>
       <Header />
       <Content>
@@ -40,7 +40,7 @@ const App = (props: Props) => (
           <Link to="/">Home</Link>
           <Link to="/dashboard">Go to dashboard</Link>
           <Link to="/settings">Go to settings</Link>
-          { props.inSession ? null : <Link to="/login">Login</Link> }
+          { inSession ? null : <Link to="/login">Login</Link> }
         </Navigator>
         <View location={location}>
           <Switch>
