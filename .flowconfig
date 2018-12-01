@@ -1,5 +1,6 @@
 [ignore]
 .*/__tests__/.*
+.*/__dist__/.*
 <PROJECT_ROOT>/node_modules/react-universal-component/.*\.flow
 
 [include]
