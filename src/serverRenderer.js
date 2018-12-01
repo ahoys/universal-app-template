@@ -12,7 +12,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import serialize from 'serialize-javascript';
 import App from 'components/App';
-import createStore from 'reducers';
+import configureStore from 'reducers';
 import flushChunks from 'webpack-flush-chunks'
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
@@ -21,7 +21,7 @@ import { clearChunks, flushChunkNames } from 'react-universal-component/server'
 
 // Create initial context
 // and initialize stores.
-const store = createStore(new Map({}));
+const store = configureStore(new Map({}));
 
 // A properly formatted basename should have a leading slash, but no trailing slash.
 // https://reacttraining.com/react-router/core/api/StaticRouter/basename-string

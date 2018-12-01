@@ -1,7 +1,7 @@
 import debug from 'debug';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import createStore from 'reducers';
+import configureStore from 'reducers';
 import App from 'components/App';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'development') {
   debug('client.js')('This is a development build.');
 }
 
-const store = createStore(fromJS(window.REDUX_DATA));
+const store = configureStore(fromJS(window.REDUX_DATA));
 const context = {};
 
 ReactDOM.hydrate(
