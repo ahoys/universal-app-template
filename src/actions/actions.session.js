@@ -5,6 +5,8 @@ type RequestSessionAction = {
   +payload: {
     +username: string,
     +password: string,
+    +lang: string,
+    +relogin: string,
   },
 };
 type ReceiveSessionAction = {
