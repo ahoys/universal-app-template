@@ -31,7 +31,7 @@ const Style: Function = (styled.div`
 /**
  * The main React-application starts from here.
  */
-const App: React.StatelessFunctionalComponent<Props> = ({ inSession, location }) => (
+export const App: React.StatelessFunctionalComponent<Props> = ({ inSession, location }) => (
   <ThemeProvider theme={commonThemes}>
     <Style>
       <Header />
