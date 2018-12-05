@@ -6,8 +6,6 @@
   "scripts": {
     "flow": "flow",
     "build": "webpack --progress --config webpack/client.production.js && webpack --progress --config webpack/server.production.js",
-    "build:client": "webpack --progress --config webpack/client.production.js",
-    "build:server": "webpack --progress --config webpack/server.production.js",
     "start": "cross-env NODE_ENV=development node src/index.dev.js",
     "start:dist": "node dist/server.js",
     "analyse": "webpack --config webpack/client.production.js --profile --json > stats.json",
