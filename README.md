@@ -37,15 +37,6 @@ This is work in progress. Make sure to read that TODO-list below.
 - FontAwesome support
 - Cookie handling
 
-## Custom configs or launch parameters
-You can find all the available configs from config.default.json (do not edit the file).
-
-If you want to override some setting, create a new file "src/configs/config.custom.json" and
-use it to override config.default.json values. You can override them all or just some specific setting. The
-config.custom.json file should not be shared via Git.
-
-You can also use launch parameters. All settings you can find from config.default.json can be overridden with a launch parameter. For example if you want to change the server port (server.port in config.default.json), the parameter would be SERVER_PORT=something. REST host parameter would be REST_HOST=something.
-
 ## Installation
 Run "npm i" and that's pretty much it. You may need to configure your IDE to fully support Flow and linting.
 - Development server: "npm start"
@@ -61,3 +52,12 @@ Run "npm i" and that's pretty much it. You may need to configure your IDE to ful
 - Path To Flow: ${workspaceRoot}\\node_modules\\.bin\\flow
 - Javascript › Validate: Enable: false
 - Typescript › Validate: Enable: false
+
+## Custom configs or launch parameters
+You can find all the available configs from config.default.json (do not edit the file).
+
+If you want to override some setting, create a new file "src/configs/config.custom.json" and
+use it to override config.default.json values. You can override them all or just some specific setting. The
+config.custom.json file should not be shared via Git.
+
+You can also use launch parameters. All settings you can find from config.default.json can be overridden with a launch parameter. For example if you want to change the server port (server.port in config.default.json), the parameter would be SERVER_PORT=something. REST host parameter would be REST_HOST=something.
