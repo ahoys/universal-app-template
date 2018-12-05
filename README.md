@@ -54,7 +54,7 @@ Run "npm i" and that's pretty much it. You may need to configure your IDE to ful
 - Typescript › Validate: Enable: false
 
 ## Custom configs or launch parameters
-You can find all the available configs from config.default.json (do not edit the file).
+You can find all the available configs from src/configs/config.default.json.
 
 If you want to override some setting, create a new file "src/configs/config.custom.json" and
 use it to override config.default.json values. You can override them all or just some specific setting. The
