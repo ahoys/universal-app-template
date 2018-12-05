@@ -29,13 +29,13 @@ This is work in progress. Make sure to read that TODO-list below.
 - Comprehensive splitting
 - Everything is bundled
 - Styled-components
+- ESlint with Prettier
 
 ### Big and small TODOs:
 - Flow
 - Testing coverage
 - FontAwesome support
 - Cookie handling
-- Linting
 
 ## Custom configs or launch parameters
 You can find all the available configs from config.default.json (do not edit the file).
