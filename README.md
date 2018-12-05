@@ -30,12 +30,12 @@ This is work in progress. Make sure to read that TODO-list below.
 - Everything is bundled
 - Styled-components
 - ESlint with Prettier
-- FontAwesome support
 
 ### Big and small TODOs:
 - Flow
 - Testing coverage
 - Cookie handling
+- FontAwesome support
 
 ## Installation
 Run "npm i" and that's pretty much it. You may need to configure your IDE to fully support Flow and linting.

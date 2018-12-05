@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import { requestSession } from 'actions/actions.session';
 
@@ -20,7 +20,7 @@ const StyledHeader = styled.div`
 
 const Header = ({ isLoggedIn, username, token, handleLogIn }) => (
   <StyledHeader>
-    <FontAwesomeIcon icon={faBars} />
+    {/* <FontAwesomeIcon icon={faBars} /> */}
     {isLoggedIn ? (
       <div>{`Logged in! Welcome ${username} of token ${token}`}</div>
     ) : (
