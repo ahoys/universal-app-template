@@ -45,3 +45,19 @@ use it to override config.default.json values. You can override them all or just
 config.custom.json file should not be shared via Git.
 
 You can also use launch parameters. All settings you can find from config.default.json can be overridden with a launch parameter. For example if you want to change the server port (server.port in config.default.json), the parameter would be SERVER_PORT=something. REST host parameter would be REST_HOST=something.
+
+## Installation
+Run "npm i" and that's pretty much it. You may need to configure your IDE to fully support Flow and linting.
+- Development server: "npm start"
+- Production build: "npm run build"
+- Run production build: "node dist/server"
+
+## Plugins for VS Code
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Flow Language Support](https://marketplace.visualstudio.com/items?itemName=flowtype.flow-for-vscode)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+## Settings for VS Code
+- Path To Flow: ${workspaceRoot}\\node_modules\\.bin\\flow
+- Javascript › Validate: Enable: false
+- Typescript › Validate: Enable: false
