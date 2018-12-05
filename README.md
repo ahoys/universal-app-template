@@ -36,6 +36,7 @@ This is work in progress. Make sure to read that TODO-list below.
 - Testing coverage
 - Cookie handling
 - FontAwesome support
+- Hot Module Replacement
 
 ## Installation
 Run "npm i" and that's pretty much it. You may need to configure your IDE to fully support Flow and linting.
