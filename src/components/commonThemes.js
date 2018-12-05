@@ -2,14 +2,16 @@
 
 type CommonThemes = {
   body: {
-    +background: string,
+    background: string,
   },
+  button: Array<string>,
 };
 
 const commonThemes: CommonThemes = {
   body: {
-    background: '#f7f7f7',
+    background: '#f5f5f5',
   },
+  button: ['cursor: pointer; user-select: none;'],
 };
 
 export default commonThemes;
