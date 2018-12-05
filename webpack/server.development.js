@@ -33,7 +33,7 @@ module.exports = {
   },
   plugins: [
     // To avoid warnings in builds.
-    new webpack.DefinePlugin({ "global.GENTLY": false }),
+    new webpack.DefinePlugin({ 'global.GENTLY': false }),
     // Servers should not split.
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1,

@@ -9,17 +9,18 @@ const style = {
 
 const Header = ({ isLoggedIn, username, token, handleLogIn }) => (
   <div style={style}>
-    {
-      isLoggedIn
-      ? <div>{`Logged in! Welcome ${username} of token ${token}`}</div>
-      : <div onClick={handleLogIn}>Log in ADMIN ADMIN</div>
-    }
+    {isLoggedIn ? (
+      <div>{`Logged in! Welcome ${username} of token ${token}`}</div>
+    ) : (
+      <div onClick={handleLogIn}>Log in ADMIN ADMIN</div>
+    )}
   </div>
 );
 
 const mapStateToProps = (state, props) => ({
-  isLoggedIn: state.getIn(['session', 'username']) !== ''
-    && state.getIn(['session', 'token']) !== '',
+  isLoggedIn:
+    state.getIn(['session', 'username']) !== '' &&
+    state.getIn(['session', 'token']) !== '',
   username: state.getIn(['session', 'username']),
   token: state.getIn(['session', 'token']),
 });
@@ -32,5 +33,5 @@ const mapDispatchToProps = (dispatch, props) => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(Header);

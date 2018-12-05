@@ -11,17 +11,17 @@ class Login extends React.Component {
     };
   }
 
-  handleUsername = (username) => {
+  handleUsername = username => {
     this.setState({
       username,
     });
-  }
+  };
 
-  handlePassword = (password) => {
+  handlePassword = password => {
     this.setState({
       password,
     });
-  }
+  };
 
   render() {
     return (
@@ -29,16 +29,24 @@ class Login extends React.Component {
         <div className="form">
           <div className="input">
             <p>Username</p>
-            <input type="text" onChange={(e) => this.handleUsername(e.target.value)} />
+            <input
+              type="text"
+              onChange={e => this.handleUsername(e.target.value)}
+            />
           </div>
           <div className="input">
             <p>Password</p>
-            <input type="password" onChange={(e) => this.handlePassword(e.target.value)} />
+            <input
+              type="password"
+              onChange={e => this.handlePassword(e.target.value)}
+            />
           </div>
           <div className="controls">
             <div
               className="button"
-              onClick={() => this.props.handleLogIn(this.state.username, this.state.password)}
+              onClick={() =>
+                this.props.handleLogIn(this.state.username, this.state.password)
+              }
             >
               Submit
             </div>
@@ -51,7 +59,7 @@ class Login extends React.Component {
 
 const mapStateToProps = () => ({});
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   handleLogIn: (username, password) => {
     dispatch(requestSession(username, password));
   },
@@ -59,5 +67,5 @@ const mapDispatchToProps = (dispatch) => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(Login);

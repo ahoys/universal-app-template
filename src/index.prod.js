@@ -1,6 +1,6 @@
 /**
  * index.prod.js
- * 
+ *
  * Root of production environment.
  * Development environment will skip this file.
  */
@@ -18,17 +18,19 @@ debug.disable('*');
 const app = express();
 
 // Configure CORS.
-app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || config.cors.origin.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error(`${origin} - not allowed by CORS.`));
-    }
-  },
-  optionsSuccessStatus: config.cors.optionsSuccessStatus,
-  methods: config.cors.methods,
-}));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || config.cors.origin.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`${origin} - not allowed by CORS.`));
+      }
+    },
+    optionsSuccessStatus: config.cors.optionsSuccessStatus,
+    methods: config.cors.methods,
+  })
+);
 
 // Configure proxies.
 const apiProxy = httpProxy.createProxyServer();

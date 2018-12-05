@@ -1,9 +1,9 @@
 /**
  * index.dev.js
- * 
+ *
  * Root of development environment.
  * Production environment will skip this file.
- * 
+ *
  * Do not webpack this file.
  */
 const config = require('./configs/index.js');
@@ -21,17 +21,19 @@ const cors = require('cors');
 const app = express();
 
 // Configure CORS.
-app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || config.cors.origin.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error(`${origin} - not allowed by CORS.`));
-    }
-  },
-  optionsSuccessStatus: config.cors.optionsSuccessStatus,
-  methods: config.cors.methods,
-}));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || config.cors.origin.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`${origin} - not allowed by CORS.`));
+      }
+    },
+    optionsSuccessStatus: config.cors.optionsSuccessStatus,
+    methods: config.cors.methods,
+  })
+);
 
 // Configure proxies.
 const apiProxy = httpProxy.createProxyServer();
@@ -58,9 +60,11 @@ app.get(`${config.rest.target}*`, (req, res) => {
 });
 
 // Bind the development middlewares.
-app.use(webpackDevMiddleware(compiler, {
-  serverSideRender: true,
-}));
+app.use(
+  webpackDevMiddleware(compiler, {
+    serverSideRender: true,
+  })
+);
 app.use(webpackHotServerMiddleware(compiler));
 
 app.listen(config.server.port, () => {

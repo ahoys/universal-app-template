@@ -1,10 +1,10 @@
 /**
  * serverRenderer.js
- * 
+ *
  * Here we clue things together.
  * Client (including the React app) is embedded into
  * a basic html frame and served to clients.
- * 
+ *
  * Both development and production environments
  * utilize this file.
  */
@@ -13,11 +13,11 @@ import ReactDOMServer from 'react-dom/server';
 import serialize from 'serialize-javascript';
 import App from 'components/App';
 import configureStore from 'reducers';
-import flushChunks from 'webpack-flush-chunks'
+import flushChunks from 'webpack-flush-chunks';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
 import { Map } from 'immutable';
-import { clearChunks, flushChunkNames } from 'react-universal-component/server'
+import { clearChunks, flushChunkNames } from 'react-universal-component/server';
 
 // Create initial context
 // and initialize stores.
@@ -32,11 +32,7 @@ export default ({ clientStats }) => (req, res, next) => {
   const context = {};
   const client = ReactDOMServer.renderToString(
     <Provider store={store}>
-      <StaticRouter
-        basename={basename}
-        location={req.url}
-        context={context}
-      >
+      <StaticRouter basename={basename} location={req.url} context={context}>
         <App context={context} />
       </StaticRouter>
     </Provider>
@@ -67,9 +63,11 @@ export default ({ clientStats }) => (req, res, next) => {
       </head>
       <body>
         <div id="root">${client}</div>
-        <script type='text/javascript'>window.REDUX_DATA = ${serialize(store.getState())}</script>
+        <script type='text/javascript'>window.REDUX_DATA = ${serialize(
+          store.getState()
+        )}</script>
         ${js}
       </body>
     </html>
-  `)
+  `);
 };

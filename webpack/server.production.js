@@ -1,7 +1,7 @@
 /**
  * server.production.js
  * Server build config for a production environment.
- * 
+ *
  * Should be run after client.production.js build!
  */
 const path = require('path');
@@ -45,7 +45,7 @@ module.exports = {
   },
   plugins: [
     // To avoid warnings in builds.
-    new webpack.DefinePlugin({ "global.GENTLY": false }),
+    new webpack.DefinePlugin({ 'global.GENTLY': false }),
     // Don't split server code.
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1,

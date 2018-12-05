@@ -1,5 +1,8 @@
 // @flow
-import { RequestSessionAction, ReceiveSessionAction } from './actions.session.flow';
+import {
+  RequestSessionAction,
+  ReceiveSessionAction,
+} from './actions.session.flow';
 
 /**
  * Requests a new session.
@@ -7,7 +10,10 @@ import { RequestSessionAction, ReceiveSessionAction } from './actions.session.fl
  * @param {string} password
  * @param {string} token
  */
-export const requestSession = ( username: string, password: string ): RequestSessionAction => ({
+export const requestSession = (
+  username: string,
+  password: string
+): RequestSessionAction => ({
   type: 'REQUEST_SESSION',
   payload: {
     username,
@@ -23,7 +29,10 @@ export const requestSession = ( username: string, password: string ): RequestSes
  * @param {string} username
  * @param {string} token
  */
-export const receiveSession = ( username: string, token: string ): ReceiveSessionAction => ({
+export const receiveSession = (
+  username: string,
+  token: string
+): ReceiveSessionAction => ({
   type: 'RECEIVE_SESSION',
   payload: {
     username,

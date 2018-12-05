@@ -6,13 +6,17 @@ import { makeHTTPDriver } from '@cycle/http';
 import { combineReducers } from 'redux-immutable';
 import { createStore, applyMiddleware } from 'redux';
 
-const configureStore = (initialState) => {  
+const configureStore = initialState => {
   const rootReducer = combineReducers({
     session,
   });
   const cycleMiddleware = createCycleMiddleware();
   const { makeActionDriver, makeStateDriver } = cycleMiddleware;
-  const store = createStore(rootReducer, initialState, applyMiddleware(cycleMiddleware));
+  const store = createStore(
+    rootReducer,
+    initialState,
+    applyMiddleware(cycleMiddleware)
+  );
   run(main, {
     ACTION: makeActionDriver(),
     STATE: makeStateDriver(),
