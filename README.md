@@ -30,11 +30,11 @@ This is work in progress. Make sure to read that TODO-list below.
 - Everything is bundled
 - Styled-components
 - ESlint with Prettier
+- FontAwesome support
 
 ### Big and small TODOs:
 - Flow
 - Testing coverage
-- FontAwesome support
 - Cookie handling
 
 ## Installation

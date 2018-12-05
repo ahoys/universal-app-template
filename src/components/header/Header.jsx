@@ -1,20 +1,32 @@
 import React from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import { requestSession } from 'actions/actions.session';
 
-const style = {
-  background: 'black',
-  color: 'white',
-};
+const StyledHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 32px;
+  padding: 0 8px;
+  background: black;
+  color: white;
+  svg {
+    margin-right: 8px;
+  }
+`;
 
 const Header = ({ isLoggedIn, username, token, handleLogIn }) => (
-  <div style={style}>
+  <StyledHeader>
+    <FontAwesomeIcon icon={faBars} />
     {isLoggedIn ? (
       <div>{`Logged in! Welcome ${username} of token ${token}`}</div>
     ) : (
       <div onClick={handleLogIn}>Log in ADMIN ADMIN</div>
     )}
-  </div>
+  </StyledHeader>
 );
 
 const mapStateToProps = (state, props) => ({
