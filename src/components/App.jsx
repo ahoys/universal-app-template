@@ -63,9 +63,9 @@ export const App: React.StatelessFunctionalComponent<Props> = ({
         )}
       </TitleLayout>
       <ToolsLayout>
-        <ToolButton icon={''} label={'Browse'} handleClick={null} />
-        <ToolButton icon={''} label={'Search'} handleClick={null} />
-        <ToolButton icon={''} label={'Settings'} handleClick={null} />
+        <ToolButton icon={''} label={'Browse'} handleClick={() => {}} />
+        <ToolButton icon={''} label={'Search'} handleClick={() => {}} />
+        <ToolButton icon={''} label={'Settings'} handleClick={() => {}} />
       </ToolsLayout>
       <div className="content-wrapper">
         <ContentLayout>
