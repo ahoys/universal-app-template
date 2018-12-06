@@ -16,10 +16,14 @@ const StyledTitleLayout = styled.div`
   padding: 0 16px;
   height: 32px;
   h1 {
+    transform: rotate(-2deg);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      1px 1px 0 #000;
     font-size: 1rem;
     font-weight: 600;
     margin: 0;
     user-select: none;
+    color: white;
   }
 `;
 

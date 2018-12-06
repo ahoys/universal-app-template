@@ -55,7 +55,7 @@ export const App: React.StatelessFunctionalComponent<Props> = ({
   <ThemeProvider theme={commonThemes}>
     <StyledApp>
       <TitleLayout>
-        <h1>Isomorphic</h1>
+        <h1>UNIVERSAL</h1>
         {inSession ? (
           <TitleButton icon={''} label={'Sign out'} to={'/login'} />
         ) : (
